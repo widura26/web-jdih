@@ -18,6 +18,11 @@ class AdminController extends Controller
         return view('admin/dashboard');
     }
 
+    public function documentView() {
+        
+        return view('admin/view_document');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

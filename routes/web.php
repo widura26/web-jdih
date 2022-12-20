@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,10 @@ Route::group(['prefix' => 'home/'], function () {
 
 Route::group(['prefix' => 'admin/'], function () {
     Route::get('/dashboard',[AdminController::class, 'dashboardView'])->name('dashboardView'); 
-    
+    Route::get('/view_document', [AdminController::class, 'documentView'])->name('documentView');
+});
+
+Route::group(['prefix' => 'auth/'], function () {
+    Route::get('/login',[AuthController::class, 'loginView'])->name('loginView'); 
 });
 
