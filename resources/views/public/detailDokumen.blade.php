@@ -9,11 +9,11 @@
         <div class="card-body">
           <table class="table">
             <tbody>
-              {{-- <tr>
+              <tr>
                 <td>Judul</td>
                 <td>{{ $document->judul }}</td>
               </tr>
-              <tr> --}}
+              <tr>
                 <td>Kategori</td>
                 <td>{{ $document->kategori->jenis }}</td>
               </tr>
