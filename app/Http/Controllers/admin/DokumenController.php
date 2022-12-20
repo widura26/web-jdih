@@ -6,15 +6,8 @@ use Illuminate\Http\Request;
 
 class DokumenController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+    
+    
 
     /**
      * Show the form for creating a new resource.
@@ -24,28 +17,6 @@ class DokumenController extends Controller
     public function dokumenAdd()
     {
         //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function UserStore(Request $request){
-        $validate=$request->validate([
-            'email' => 'required|unique:users',
-            'textNama' => 'required',
-        ]);
-
-        $data=new User();
-        $data->usertype=$request->selectUser;
-        $data->name=$request->textNama;
-        $data->email=$request->email;
-        $data->password=bcrypt($request->password);
-        $data->save();
-        
-        return redirect()->route('user.view')->with('info','Tambah User Berhasil');
     }
 
     /**

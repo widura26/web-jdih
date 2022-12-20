@@ -1,0 +1,44 @@
+*{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.container-kategori{
+  margin: 100px 20px 50px 20px;
+}
+nav{
+  background-color: rgb(212, 0, 255);
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,.2);
+  /* position: absolute; */
+}
+ul{
+  padding: 0 20px 0 20px;
+}
+
+.table tbody tr td{
+  margin: 10px;
+}
+
+tr{
+  height: 50px;
+}
+
+td{
+  padding: 5px;
+}
+
+.card{
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+input {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+li {
+
+  padding: 0 10px 0 10px;
+}

@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('documents', function (Blueprint $table) {
-            $table->integer('Dokumen_terkait')->before('Tanggal_pengesahan');
+        Schema::create('logs', function (Blueprint $table) {
+            $table->id();
+            $table->string('aktivitas');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('documents', function (Blueprint $table) {
-            $table->dropIfExists('Dokumen_terkait');
-        });
+        Schema::dropIfExists('logs');
     }
 };
