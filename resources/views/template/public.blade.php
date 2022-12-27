@@ -11,5 +11,10 @@
   </head>
   <body>
     @include('partials.navpublic')
+
+    <div class="container">
+      @yield('container')
+    </div>
+    
   </body>
 </html>

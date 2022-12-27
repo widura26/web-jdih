@@ -16,18 +16,22 @@ class KategoriSeeder extends Seeder
     public function run()
     {
         Kategori::create([
+            'singkatan' => 'Peraturan Desa',
             'jenis' => 'Perdes'
         ]);
 
         Kategori::create([
+            'singkatan' => 'Peraturan Kepala Desa',
             'jenis' => 'Perkades'
         ]);
 
         Kategori::create([
+            'singkatan' => 'Peraturan Bersama Kepala Desa',
             'jenis' => 'Permakades'
         ]);
 
         Kategori::create([
+            'singkatan' => 'Surat Keputusan Kepala Desa',
             'jenis' => 'SK Kades'
         ]);
     }

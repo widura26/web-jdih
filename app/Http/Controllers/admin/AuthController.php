@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Traits\KategoriTrait;
 
 class AuthController extends Controller
 {
@@ -14,6 +15,8 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    use KategoriTrait;
 
     public function tambahAdmin()
     {
@@ -38,8 +41,11 @@ class AuthController extends Controller
     // }
 
     public function loginView()
-    {
-        return view('auth/index');
+    {   
+        $category = $this->jenisDokumen();
+        return view('auth.index', compact('category'), [
+            "active" => "login"
+        ]);
     }
 
     public function authenticate(Request $request)

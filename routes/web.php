@@ -78,8 +78,10 @@ Route::group(['prefix' => 'auth/'], function () {
 Route::get('/logout', [AuthController::class, 'logout']);
 
 route::prefix('public')->group(function(){
+
     Route::get('/dashboard', [PublicController::class, 'dashboard'])->name('public.dashboard');
     Route::get('/detail-dokumen/{id}', [PublicController::class, 'detailDokumen'])->name('public.detailDokumen');
-
     Route::get('/kategori/{kategori:jenis}', [PublicController::class, 'dokBasedKategori'])->name('public.dokBasedKategori');
+    Route::get('/contact', [PublicController::class, 'contactView'])->name('public.contact');
+    Route::get('/semua-dokumen', [PublicController::class, 'semuaDokumen'])->name('public.semuaDokumen');
 });

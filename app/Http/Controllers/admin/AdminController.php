@@ -4,6 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
 use App\Models\User;
 use App\Models\Log;
@@ -14,7 +16,7 @@ use App\Models\DokumenTerkait;
 use App\Models\DokumenPengganti;
 use App\Http\Traits\KategoriTrait;
 use App\Http\Traits\StatusDokumenTrait;
-
+use GuzzleHttp\Promise\Create;
 
 class AdminController extends Controller
 {
@@ -36,7 +38,7 @@ class AdminController extends Controller
     }
 
     public function daftarDokumen() {
-        $dokumen = Dokumen::latest()->paginate(4);
+        $dokumen = Dokumen::latest()->get();
         return view('admin.dokumen.view_document', [
             'title' => 'Semua Dokumen',
             'dokumen' => $dokumen
@@ -72,74 +74,64 @@ class AdminController extends Controller
         ]);
     }
 
-    public function tambahDokumenProses(Request $request)
-    {
+    public function tambahDokumenProses(Request $request){
         $validatedData = $request->validate([
             'judul' => 'required',
             'kategori_id' => 'required',
             // 'dokumen_id' => 'required',
             'nomor' => 'required',
-            'dokumen' => 'file|mimes:pdf',
-            // 'tanggal_pengesahan' => 'required',
+            'dokumen' => ['nullable','file', 'mimes:pdf'],
+            'tanggal_pengesahan' => 'required',
+            'status_dokumen_id' => 'required'
         ]);
-
         if($request->file('dokumen')){
             $validatedData['dokumen'] = $request->file('dokumen')->store('post-dokumen');
         }
-
-
-        $data = new Dokumen();
-        $data->judul = $request->judul;
-        $data->kategori_id = $request->kategori_id;
-        // $data->dokumen_id = $request->dokumen_id;
-        $data->nomor = $request->nomor;
-        $data->dokumen = $request->file('dokumen')->store('post-dokumen');
-        $data->status_dokumen_id = $request->status_dokumen_id;
-        $data->tanggal_pengesahan = $request->tanggal_pengesahan;
-        
-        $data->save();
+        Dokumen::create($validatedData);
         return redirect()->route('admin.semuaDokumen')->with('info', 'Tambah dokumen berhasil');
+        // $data = new Dokumen();
+        // $data->judul = $request->judul;
+        // $data->kategori_id = $request->kategori_id;
+        // $data->nomor = $request->nomor;
+        // $data->dokumen = $request->file('dokumen')->store('post-dokumen');
+        // $data->status_dokumen_id = $request->status_dokumen_id;
+        // $data->tanggal_pengesahan = $request->tanggal_pengesahan;
+        // $data->save();
     }
 
     public function ubahDokumen($id)
-    {
+    {   
         $document = Dokumen::find($id);
         $category = $this->jenisDokumen();
         $statusDokumen = $this->jenisStatus();
 
-        return view('admin.dokumen.edit_document', [
-            'title' => $document->judul,
+        return view('admin.dokumen.edit_document_view', [
+            'title' => 'edit | ' . $document->judul,
             'category' => $category,
             'document' => $document,
             'statusDokumen' => $statusDokumen
         ]);
     }
 
-    public function ubahDokumenProses(Request $request, $id)
-    {
-        $validatedData = $request->validate([
+    public function ubahDokumenProses(Request $request, $id){   
+        $data = [
             'judul' => 'required',
             'kategori_id' => 'required',
             'nomor' => 'required',
-            'dokumen' => 'file|mimes:pdf',
+            'dokumen' => ['nullable','file', 'mimes:pdf'],
+            'tanggal_pengesahan' => 'required',
             'status_dokumen_id' => 'required'
-        ]);
+        ];
+        $validatedData = $request->validate($data);
 
         if($request->file('dokumen')){
+            if($request->oldDokumen){
+                Storage::delete($request->oldDokumen);
+            }
             $validatedData['dokumen'] = $request->file('dokumen')->store('post-dokumen');
         }
-
-        $document = Dokumen::find($id);
-        $document->judul = $request->judul;
-        $document->kategori_id = $request->kategori_id;
-        $document->nomor = $request->nomor;
-        $document->dokumen = $request->dokumen;
-        $document->status_dokumen_id = $request->status_dokumen_id;
-        $document->tanggal_pengesahan = $request->tanggal_pengesahan;
-        $document->save();
-        // $slug = Str::slug($judul, '-');
-
-        return redirect()->route('admin.semuaDokumen');
+        DB::table('dokumen')->where('id', $id)->update($validatedData);
+        return redirect()->route('admin.semuaDokumen')->with('success', 'update berhasil'); 
     }
 
     public function hapusDokumen($id){
@@ -177,15 +169,12 @@ class AdminController extends Controller
     }
 
     function dokumenTerkaitProses(Request $request, $idDokumen){
-        
         $data = [];
-
         foreach ($request->input('dokumen_terkait') as $idDokumenTerkait) {
-            $data[] = ['id_dokumen_utama' => $idDokumen, 'id_dokumen_terkait' => $idDokumenTerkait];
+            $data[] = ['id_dokumen_utama' => $idDokumen, 'id_dokumen_terkait' 
+            => $idDokumenTerkait];
         }
-
         DokumenTerkait::upsert($data, ['id_dokumen_utama', 'id_dokumen_terkait']);
-
         return redirect()->route('admin.dokumenTerkait', ['id' => $idDokumen]);
     }
 
@@ -220,16 +209,14 @@ class AdminController extends Controller
     function dokumenPenggantiProses(Request $request, $idDokumen){
         
         $data = [];
-
         $pengganti = new DokumenPengganti();
         $pengganti->kode_pergantian = $request->kode_pergantian;
 
         foreach ($request->input('dokumen_pengganti') as $idDokumenPengganti) {
-            $data[] = ['id_dok_diganti' => $idDokumen, 'id_dok_pengganti' => $idDokumenPengganti, 'kode_pergantian' => $pengganti->kode_pergantian];
+            $data[] = ['id_dok_diganti' => $idDokumen, 'id_dok_pengganti' => $idDokumenPengganti, 
+            'kode_pergantian' => $pengganti->kode_pergantian];
         }
-
         DokumenPengganti::upsert($data, ['id_dok_diganti', 'id_dok_pengganti', 'kode_pergantian']);
-
         return redirect()->route('admin.dokumenPengganti', ['id' => $idDokumen]);
     }
 
@@ -306,7 +293,9 @@ class AdminController extends Controller
             'logs' => Log::all(),
         ];
 
-        return view('admin/administrator/log_admin', $data);
+        return view('admin.administrator.log_admin', $data,[
+            "title" => "Aktivitas Admin"
+        ]);
     }
 
     

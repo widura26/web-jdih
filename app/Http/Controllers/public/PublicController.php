@@ -18,8 +18,21 @@ class PublicController extends Controller
     public function dashboard(){
         
         $category = $this->jenisDokumen();
-        $dokumen = Dokumen::all();
-        return view('public.dashboard', compact('dokumen', 'category'), ["title" => "Dasboard"]);
+        $document = Dokumen::latest()->limit(4)->get();
+        $dokumen = Dokumen::latest()->limit(6)->get();
+        return view('public.dashboard_new', compact('dokumen', 'category', 'document'), [
+            "title" => "Dasboard",
+            "active" => "home"
+        ]);
+    }
+
+    public function semuaDokumen(){
+        $category = $this->jenisDokumen();
+        $dokumen = Dokumen::latest()->paginate(6);
+        return view('public.semuaDokumen', compact('dokumen', 'category'), [
+            "title" => "Semua Dokumen",
+            "active" => "home"
+        ] );
     }
 
     public function detailDokumen($id, Dokumen $judul)
@@ -27,8 +40,9 @@ class PublicController extends Controller
 
         $category = $this->jenisDokumen();
         $document = Dokumen::find($id);
+        $dokumen = DB::table('dokumen')->where('id', '!=', $id)->get();
         
-        return view('public.detailDokumen', compact('document'), [
+        return view('public.detail', compact('document'), [
             
             "title" => $document->judul,
             "category" => $category,
@@ -37,14 +51,25 @@ class PublicController extends Controller
             "dokumenPengganti" => $document->dokumenPengganti,
             "dokYangDiganti" => $document->dokYangDiganti,
             "status" => $document->statusDokumen->status,
+            "active" => "home",
+            "dokumen" => $dokumen
         ]);
     }
 
     public function dokBasedKategori(Kategori $kategori){
 
         return view('public.dokBasedKategori', [
-            "title" => "Kategori | $kategori->jenis", 
-            "dokumenAll" => $kategori->dokumen->load('kategori')
+            "title" => "Kategori | $kategori->singkatan", 
+            "dokumenAll" => $kategori->dokumen->load('kategori'),
+            "active" => "kategori"
+        ]);
+    }
+
+    public function contactView(){
+
+        return view('public.contact', [
+            "title" => "contact",
+            "active" => "contact",
         ]);
     }
 }

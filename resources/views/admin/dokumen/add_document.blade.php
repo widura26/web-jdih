@@ -55,10 +55,10 @@
           <input type="text"  class="form-control @error('nomor') is-invalid @enderror" id="nomor" name="nomor">
         </div>
     
-        <div class="mb-3">
+        {{-- <div class="mb-3">
           <label for="dokumen" class="form-label">File</label>
           <input type="file" class="form-control @error('dokumen') is-invalid @enderror" id="dokumen" name="dokumen">
-        </div>
+        </div> --}}
     
         <div class="mb-3">
           <label for="tanggal_pengesahan" class="form-label">Tanggal Pengesahan</label>
@@ -76,6 +76,11 @@
           @error('status_dokumen_id')
               <div class="invalid-feedback">{{ $message }}</div>
           @enderror
+        </div>
+
+        <div class="button-wrap">
+          <label for="upload" class="button">File</label>
+          <input type="file" class="@error('dokumen') is-invalid @enderror" id="upload" name="dokumen">
         </div>
         
     

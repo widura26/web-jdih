@@ -1,0 +1,166 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.container-detail{
+  background-color: rgb(240, 240, 240);
+  /* margin: 0; */
+}
+
+.wrapper{
+  padding: 5%;
+  padding-bottom: 0;
+}
+
+.wrapper-dokumen{
+  /* background-color: aqua; */
+  padding: 5%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.container-dokumen{
+  background-color: rgb(240, 240, 240);
+}
+
+.box-dokumen{
+  flex-wrap: wrap;
+  display: flex;
+  /* height: 20vh; */
+  /* padding: 5%; */
+  /* background-color: #fff; */
+}
+
+.wrapper-file{
+  padding: 5%;
+  padding-top: 0;
+}
+
+.box-file{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+iframe{
+  width: 100%;
+  padding: 10px;
+  /* margin: 10px; */
+}
+.box-frame{
+  flex: 4;
+  /* height: 20vh; */
+  margin-right: 5px;
+  background-color: #fff;
+  /* height: 100%; */
+  /* padding: 10px; */
+}
+.box-kategori{
+  flex: 2;
+  margin-left: 5px;
+  background-color: #fff;
+}
+
+.wrapper-dokumen .box-dokumen-terkait{
+  background-color: rgb(255, 255, 255);
+  flex: 2;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+  height: 40vh;
+}
+.wrapper-dokumen .box-dokumen-pengganti{
+  background-color: #fff;
+  flex: 2;
+  border: 1px solid #ccc;
+  margin-left: 5px;
+  height: 40vh;
+}
+
+.box-dokumen-pengganti{
+  padding: 10px 10px 10px 10px;
+  /* overflow: auto; */
+}
+
+.box-dokumen-terkait{
+  padding: 10px;
+}
+
+.daftar-dokumen-terkait{
+  /* border: 1px #ccc solid; */
+  /* border-radius: 10px; */
+  /* box-shadow: 0 4px 4px 0 rgba(0,0,0,.2); */
+  /* border: 1px solid #ccc; */
+  overflow: auto;
+  bottom: 0;
+  height: 266px;
+  background-color: #fff;
+}
+
+.box-dokumen-pengganti h5{
+  text-align: center;
+}
+.box-dokumen-terkait h5{
+  text-align: center;
+}
+
+.daftar{
+  background-color: rgb(224, 224, 224);
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.dokumen-not-found{
+  text-align: center;
+  background-color: #fff;
+  color: #ccc;
+  padding: 10px;
+}
+
+.dokumen-not-found h5{
+  color: #ccc;
+}
+
+.container-footer{
+  background-color: #dedede;
+  height: auto;
+}
+
+.footer{
+  height: 30vh;
+  width: 100%;
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin: auto;
+  padding: 30px 0 30px 0;
+}
+
+.footer-section{
+  width: 20%;
+  margin: 0 auto;
+}
+
+.footer .footer-section li{
+  list-style-type: none;
+  padding: auto;
+}
+ .footer .footer-section li a{
+  text-decoration: none;
+  color: #364f6b;
+  padding: 0;
+}
+
+.daftar h4{
+  font-size: 20px;
+}
+
+.judul-dokumen {
+  background-color: #364f6b;
+  color:#fff;
+  /* display: block; */
+}
+.judul-dokumen h5 {
+  padding: 5px;
+}

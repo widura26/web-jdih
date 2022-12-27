@@ -34,7 +34,7 @@
             <td>{{ $data->judul }}</td>
             <td>
               <a class="btn btn-primary btn-xs" href="{{ route('admin.ubahDokumen', $data->id) }}"> <i class="ti-pencil"></i></a>
-              <a class="btn btn-danger btn-xs" href="{{ route('admin.hapusDokumen', $data->id) }}"><i class="ti-trash"></i></a>
+              <a class="btn btn-danger btn-xs" href="{{ route('admin.hapusDokumen', $data->id) }}" id="delete"><i class="ti-trash"></i></a>
               <a class="btn btn-danger btn-xs" href="{{ route('admin.dokumenTerkait', $data->id) }}"><i class="ti-book"></i></a>
               <a class="btn btn-danger btn-xs" href="{{ route('admin.dokumenPengganti', $data->id) }}"><i class="ti-book"></i></a>
             </td>

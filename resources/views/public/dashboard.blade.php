@@ -12,36 +12,13 @@
   <body>
     @include('partials.navpublic')
 
-    {{-- <div class="container-dasboard"> --}}
-      <div class="container mt-5">
+    <div class="box">
+      <div class="container-pertama">
         <div class="row">
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                <p class="card-title text-md-center text-xl-left">Peraturan desa</p>
-                <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                  <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">10</h3>
-                  <i class="ti-calendar icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
-                </div>  
-                <p class="mb-0 mt-2 text-danger">0.12% <span class="text-black ml-1"><small>(30 days)</small></span></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-body">
-                <p class="card-title text-md-center text-xl-left">Peraturan desa</p>
-                <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                  <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">10</h3>
-                  <i class="ti-calendar icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
-                </div>  
-                <p class="mb-0 mt-2 text-danger">0.12% <span class="text-black ml-1"><small>(30 days)</small></span></p>
-              </div>
-            </div>
-          </div>
+          <h1>JDIH Desa Tambong</h1>
+          <p>Jaringan Dokumen Informasi Hukum | Desa Tambong Banyuwangi</p>
+          <p>2022</p>
         </div>
-      </div>
-      <div class="container">
         <div class="row">
           <div class="col text-center">
             <form action="" method="">
@@ -52,23 +29,44 @@
             </form>
           </div>
         </div>
-      </div>
-      <div class="container mt-5">
-        <div class="row p-2">
-          @foreach ($dokumen as $item)
-            <div class="col-md-4 mb-3">
-              <div class="card" style="height: 200px">
-                <div class="card-body">
-                  <a href="{{ route('public.detailDokumen', $item->id) }}" class="text-decoration-none" style="color: black">{{ $item->judul }}</a>
-                </div>
-                <div class="card-footer">
-                  {{ showDate($item->tanggal_pengesahan, 'j F Y') }}
+        @if ($dokumen->count())
+          <div class="row p-4 mt-5 border">
+            @foreach ($dokumen as $item)
+              <div class="col-md-4 mb-3">
+                <div class="card" style="height: 200px">
+                  <div class="card-body">
+                    <a href="{{ route('public.detailDokumen', $item->id) }}" class="text-decoration-none" style="color: black">{{ $item->judul }}</a>
+                  </div>
+                  <div class="card-footer">
+                    {{ showDate($item->tanggal_pengesahan, 'j F Y') }}
+                  </div>
                 </div>
               </div>
+            @endforeach
+          </div>
+        @else
+          <div class="row p-4 mt-5 border">
+            <div class="notif">
+              <p>Tidak ada dokumen</p>
             </div>
-          @endforeach
+          </div>  
+        @endif
+        
+      </div>
+      <div class="container-kedua">
+        <div class="dokumen-terbaru">
+          <h1>Dokumen Peraturan Terbaru</h1>
+          <div class="daftar-dokumen-terbaru">
+            @if($document->count())
+            <div class="dokumen-1">
+              <h5>{{ $document[0]->judul }}</h5>
+              <p>Lorem ipsum dolor sit amet consectetur 
+                adipisicing elit. Animi, necessitatibus!</p>
+            </div>
+            @endif
+          </div>
         </div>
       </div>
-    {{-- </div> --}}
+    </div>
   </body>
 </html>

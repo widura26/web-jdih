@@ -12,43 +12,43 @@
   </div>
 
   @if (isset($pilihanDokumen))
-        <div class="container mt-5 p-3" style="align-items: center;">
+        <div class="container mt-5 p-3">
             <form action="{{ route('admin.dokumenTerkaitProses', [ 'id' => $idDokumen ]) }}" method="post">
                 @csrf
-                @foreach($pilihanDokumen as $dokumen)
-                  <div class="card" style="width: 65%; margin: auto;">
-                    <div class="form-check">
-                      {{-- <div class="card-header">{{ $dokumen->judul }}</div> --}}
-                      <div class="card-body">
-                        <div class="row">
-
-                          <div class="bagian col-md-11">
-                            <h5>{{ $dokumen->judul }}</h5>
-                            <p>{{ $dokumen->kategori->jenis }}</p>
-                            <label for="pilihan-{{ $dokumen->id }}" class="form-check-label"></label>
-                          </div>
-                          
-                          <div class="ceklist col-md-1">
+                <div class="kumpulan-dokumen">
+                  <div class="dok"> 
+                    @foreach($pilihanDokumen as $dokumen)
+                      <div class="kartu">
+                        <div class="card-body">
+                          <h5>{{ $dokumen->judul }}</h5>
+                          <p>{{ $dokumen->kategori->jenis }}</p>
+                        </div>
+                        <div class="card-footer">
+                          <div class="form-check">
+                            <label for="pilihan-{{ $dokumen->id }}" class="form-check-label">
+  
+                            </label>
                             <input type="checkbox" name="dokumen_terkait[]" id="pilihan-{{ $dokumen->id }}" class="form-check-input" value="{{ $dokumen->id }}">
                           </div>
-
                         </div>
+                      </div> 
+                      <br>
+                    @endforeach
+                  </div>
 
-                      </div>
-                    </div>
-                  </div> 
-                  <br> 
-                @endforeach
-                
-
-                <button type="submit" class="btn btn-primary" style="position: relative; left: 45%;">Simpan</button>
-                
-
+                    <button type="submit" class="tombol">Simpan</button>
+                </div> 
             </form>
         </div>
     @else
-        <div class="container mt-5" style="border: 1px solid #ff0000">
-          <h5>cari dokumen terkait</h5>
+        <div id="pencarian">
+          <div class="bungkus">
+            <div class="notif">
+              <div class="notif-section">
+                <h3>Dokumen Terkait</h3>
+              </div>
+            </div>
+          </div>
         </div>
     @endif
 @endsection
