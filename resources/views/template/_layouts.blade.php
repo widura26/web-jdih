@@ -30,17 +30,21 @@
                 <a class="navbar-brand brand-logo-mini" href="index.html"><img
                         src="{{ asset('assets2/images/logo-mini.svg') }}" alt="logo" /></a>
             </div>
-            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-                <button class="navbar-toggler navbar-toggler align-self-center ms-5" type="button" data-toggle="minimize">
+            <div class="navbar-menu navbar-brand-wrapper d-flex float-left justify-content-start">
+                <button class="navbar-toggler" type="button" data-toggle="minimize">
                     <span class="ti-view-list"></span>
                 </button>
-                
-                <div class="">
-                  <a class="dropdown-item" href="/logout">
-                      <i class="ti-power-off text-primary"></i>
-                      Logout
-                  </a>
-                </div>
+            </div>
+            <div class="navbar-menu justify-content-end mr-5" id="navbarNav">
+
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="dropdown-item" href="/logout">
+                        <i class="ti-power-off text-primary"></i>
+                        Logout
+                    </a>
+                  </li>
+                </ul>
             </div>
         </nav>
         <!-- partial -->
