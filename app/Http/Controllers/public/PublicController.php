@@ -9,6 +9,8 @@ use App\Http\Traits\KategoriTrait;
 use App\Http\Traits\StatusDokumenTrait;
 use App\Models\Kategori;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
 
 class PublicController extends Controller
 {
@@ -41,7 +43,7 @@ class PublicController extends Controller
         $category = $this->jenisDokumen();
         $document = Dokumen::find($id);
         $dokumen = DB::table('dokumen')->where('id', '!=', $id)->get();
-        
+        // $download = Storage::download($dokumen);
         return view('public.detail', compact('document'), [
             
             "title" => $document->judul,
@@ -71,5 +73,12 @@ class PublicController extends Controller
             "title" => "contact",
             "active" => "contact",
         ]);
+    }
+
+    public function download($id){
+        $file = DB::table('dokumen')->where('id', $id)->first();
+        $filepath = public_path("storage/{$file->dokumen}");
+        return Response::download($filepath);
+
     }
 }

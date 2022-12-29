@@ -84,4 +84,5 @@ route::prefix('public')->group(function(){
     Route::get('/kategori/{kategori:jenis}', [PublicController::class, 'dokBasedKategori'])->name('public.dokBasedKategori');
     Route::get('/contact', [PublicController::class, 'contactView'])->name('public.contact');
     Route::get('/semua-dokumen', [PublicController::class, 'semuaDokumen'])->name('public.semuaDokumen');
+    Route::get('/download/{id}', [PublicController::class, 'download'])->name('public.download');
 });
