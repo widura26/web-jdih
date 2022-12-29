@@ -91,8 +91,12 @@ iframe{
   /* box-shadow: 0 4px 4px 0 rgba(0,0,0,.2); */
   /* border: 1px solid #ccc; */
   overflow: auto;
-  bottom: 0;
-  height: 266px;
+  /* bottom: 0px; */
+  /* margin-bottom: 20px; */
+  height: 250px;
+  scroll-padding-right: 10px
+  ;
+  /* scroll-margin-left: 10px; */
   background-color: #fff;
 }
 

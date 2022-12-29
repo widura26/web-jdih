@@ -23,7 +23,7 @@ body{
 }
 
 .box{
-  padding: 10px;
+  /* padding: 10px; */
   height: 200px;
   background-color: #fff;
   /* box-shadow: 1px 1px 1px 1px rgb(182, 182, 182); */
@@ -65,4 +65,17 @@ body{
   text-decoration: none;
   color: #364f6b;
   padding: 0;
+}
+
+.box h5{
+  background-color: #364f6b;
+  padding: 10px;
+}
+.box h5 a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.box .isi{
+  padding: 10px;
 }

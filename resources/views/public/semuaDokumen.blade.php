@@ -26,7 +26,7 @@
     <div class="container-dokumen">
       @foreach ($dokumen as $item)
         <div class="box">
-          <h5>{{ $item->judul }}</h5>
+          <h5><a href="{{ route('public.detailDokumen', $item->id) }}">{{ $item->judul }}</a></h5>
           <div class="isi">
             {{ $item->kategori->singkatan }} No. {{ $item->nomor }} Tahun 2022
           </div>
