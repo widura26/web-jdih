@@ -13,10 +13,10 @@
   @include('partials.navpublic')
   <div class="bagian-search">
     <div class="search">
-      <form action="" method="">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Cari dokumen" name="search" value="">
-          <button class="btn btn-dark" type="submit">Cari</button>
+      <form action="{{ route('public.semuaDokumen') }}">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Cari dokumen" name="search">
+          <button class="btn btn-primary" type="submit">Cari</button>
         </div>
       </form>
     </div>

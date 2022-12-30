@@ -18,7 +18,7 @@ class RoleController extends Controller
     }
 
     public function view_add_role() {
-        return view('admin.roles.add_role');
+        return view('admin.roles.add_role', ['title' => "Tambah role"]);
     }
 
     public function addRole(Request $request) {
@@ -47,7 +47,7 @@ class RoleController extends Controller
 
     public function viewEditRole($id) {
         $editRole = Role::find($id);
-        return view('admin.roles.edit_role', compact('editRole'));
+        return view('admin.roles.edit_role', compact('editRole'), ['title' => "edit role"]);
     }
 
     

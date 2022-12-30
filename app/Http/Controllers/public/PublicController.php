@@ -31,6 +31,11 @@ class PublicController extends Controller
     public function semuaDokumen(){
         $category = $this->jenisDokumen();
         $dokumen = Dokumen::latest()->paginate(6);
+
+        if(request('search')){
+            $dokumen->where('judul', 'like', '%' . request('search') . '%' );
+        }
+        
         return view('public.semuaDokumen', compact('dokumen', 'category'), [
             "title" => "Semua Dokumen",
             "active" => "home"
