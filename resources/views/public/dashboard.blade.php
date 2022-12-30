@@ -15,7 +15,7 @@
     <div class="box">
       <div class="container-pertama">
         <div class="row">
-          <h1>JDIH Desa Tambong</h1>
+          {{-- <h1>JDIH Desa Tambong</h1> --}}
           <p>Jaringan Dokumen Informasi Hukum | Desa Tambong Banyuwangi</p>
           <p>2022</p>
         </div>

@@ -25,13 +25,12 @@ body{
 .box{
   /* padding: 10px; */
   height: 200px;
-  background-color: #fff;
+  background-color: #ededed;;
   /* box-shadow: 1px 1px 1px 1px rgb(182, 182, 182); */
-  border: 1px solid rgb(164, 164, 164);
 }
 
 .pagination{
-  /* margin-top: 0fr; */
+  background-color: #fff;
   margin: 20px auto;
   width: 50%;
   justify-content: center;
@@ -68,8 +67,9 @@ body{
 }
 
 .box h5{
-  background-color: #364f6b;
+  background-color: #7700FF;;
   padding: 10px;
+  color: #fff;
 }
 .box h5 a{
   color: #fff;

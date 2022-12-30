@@ -1,0 +1,45 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: sans-serif;
+}
+
+.navbar{
+  display: flex;
+  background-color: #47B5FF;
+  justify-content: space-around;
+  padding: 20px 0;
+  color: rgb(255, 255, 255);
+  /* height: 50px; */
+}
+
+.navbar ul{
+  display: flex;
+  list-style: none;
+  width: 20%;
+  justify-content: space-between;
+}
+
+.navbar ul li a{
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+/* responsive */
+
+/* ukuran tablet */
+
+@media screen and (max-width: 768px){
+  .navbar ul{
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 576px){
+  .navbar ul{
+    display: none;
+  }
+}

@@ -162,7 +162,7 @@
               <tr>
                 <td>Tahun</td>
                 <td>:</td>
-                <td>2022</td>
+                <td>{{ $document->tahun }}</td>
               </tr>
               <tr>
                 <td>Tanggal Pengesahan</td>

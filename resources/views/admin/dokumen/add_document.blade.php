@@ -54,6 +54,11 @@
           <label for="nomor" class="form-label">Nomor</label>
           <input type="text"  class="form-control @error('nomor') is-invalid @enderror" id="nomor" name="nomor">
         </div>
+
+        <div class="mb-3">
+          <label for="tahun" class="form-label">Tahun</label>
+          <input type="text"  class="form-control @error('tahun') is-invalid @enderror" id="tahun" name="tahun">
+        </div>
     
         {{-- <div class="mb-3">
           <label for="dokumen" class="form-label">File</label>

@@ -26,13 +26,12 @@
     <div class="container-dokumen">
       @foreach ($dokumen as $item)
         <div class="box">
-          <h5><a href="{{ route('public.detailDokumen', $item->id) }}">{{ $item->judul }}</a></h5>
+          <h5>{{ $item->kategori->singkatan }} No. {{ $item->nomor }} Tahun 2022</h5>
           <div class="isi">
-            {{ $item->kategori->singkatan }} No. {{ $item->nomor }} Tahun 2022
+            <a href="{{ route('public.detailDokumen', $item->id) }}">{{ $item->judul }}</a>
           </div>
         </div> 
       @endforeach
-
     </div>
     <div class="pagination">
       {{ $dokumen->links() }}

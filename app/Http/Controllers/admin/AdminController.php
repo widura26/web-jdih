@@ -80,6 +80,7 @@ class AdminController extends Controller
             'kategori_id' => 'required',
             // 'dokumen_id' => 'required',
             'nomor' => 'required',
+            'tahun' => 'required',
             'dokumen' => ['nullable','file', 'mimes:pdf'],
             'tanggal_pengesahan' => 'required',
             'status_dokumen_id' => 'required'
@@ -118,6 +119,7 @@ class AdminController extends Controller
             'judul' => 'required',
             'kategori_id' => 'required',
             'nomor' => 'required',
+            'tahun' => 'required',
             'dokumen' => ['nullable','file', 'mimes:pdf'],
             'tanggal_pengesahan' => 'required',
             'status_dokumen_id' => 'required'

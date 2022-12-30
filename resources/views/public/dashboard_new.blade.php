@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('assets/css/public2.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}"> --}}
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -75,14 +76,14 @@
           <p>Jaringan Dokumen Informasi Hukum<br>Desa tambong, Banyuwangi 2022</p>
           {{-- <p>Desa Tambong, Banyuwangi 2022</p> --}}
         </div>
-        <div class="pencarian">
+        {{-- <div class="pencarian">
           <form action="" method="">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Cari dokumen" name="search" value="">
               <button class="btn btn-dark" type="submit">Cari</button>
             </div>
           </form>
-        </div>
+        </div> --}}
       </div>
     </div>
 
@@ -97,11 +98,21 @@
 
                 {{-- <div class="kolom"> --}}
                   <div class="box-dokumen">
-                    <div class="isi-box">
-                      <a href="{{ route('public.detailDokumen', $item->id) }}">{{ $item->judul }}</a>
+                    <div class="judul-box">
+                      <h5>{{ $item->kategori->singkatan }} No. {{ $item->nomor }} Tahun 2022</h5>
                     </div>
-                    {{-- <div class="bawah-box">
-                      {{ showDate($item->tanggal_pengesahan, 'j F Y') }}
+                    <a href="{{ route('public.detailDokumen', $item->id) }}">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                        <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+                      </svg>
+                      Lihat Dokumen
+                    </a>
+                    
+                    {{-- <div class="isi-box">
+                      <h5>
+                        <a href="{{ route('public.detailDokumen', $item->id) }}">{{ $item->judul }}</a>
+                      </h5>
                     </div> --}}
                   </div>
                 {{-- </div> --}}
@@ -126,8 +137,7 @@
                   @if($document->count())
                   <div class="dokumen-1">
                     <h5>{{ $document[0]->judul }}</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur 
-                      adipisicing elit. Animi, necessitatibus!</p>
+                    <p>Tentang {{ $document[0]->kategori->singkatan }} Tahun 2022</p>
                   </div>
                   @endif
                 </div>
@@ -135,7 +145,7 @@
 
             </div>
 
-            <div class="jumlahDokumen">
+            {{-- <div class="jumlahDokumen">
               <div class="jumlah-dokumen">
                 <h4>Daftar Kategori</h4>
                 <div class="daftar-kategori">
@@ -147,7 +157,7 @@
                   @endforeach
                 </div>
               </div>
-            </div>
+            </div> --}}
           </div>
 
         </div>

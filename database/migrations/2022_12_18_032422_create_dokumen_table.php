@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('judul')->unique();
             $table->foreignId('kategori_id');
             $table->string('nomor')->unique();
+            $table->string('tahun');
             $table->string('dokumen')->nullable();
             $table->date('tanggal_pengesahan');
             $table->foreignId('status_dokumen_id');
