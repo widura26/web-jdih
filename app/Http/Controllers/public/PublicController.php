@@ -20,25 +20,26 @@ class PublicController extends Controller
     public function dashboard(){
         
         $category = $this->jenisDokumen();
-        $document = Dokumen::latest()->limit(4)->get();
         $dokumen = Dokumen::latest()->limit(6)->get();
-        return view('public.dashboard_new', compact('dokumen', 'category', 'document'), [
+        return view('public.dashboard_new', compact('dokumen', 'category'), [
             "title" => "Dasboard",
             "active" => "home"
         ]);
     }
 
     public function semuaDokumen(){
+        // dd(request('search'));q
         $category = $this->jenisDokumen();
-        $dokumen = Dokumen::latest()->paginate(6);
+        $dokumen = Dokumen::latest();
 
         if(request('search')){
             $dokumen->where('judul', 'like', '%' . request('search') . '%' );
         }
         
-        return view('public.semuaDokumen', compact('dokumen', 'category'), [
+        return view('public.semuaDokumen', compact('category'), [
             "title" => "Semua Dokumen",
-            "active" => "home"
+            "active" => "home",
+            "dokumen" => $dokumen->get()
         ] );
     }
 

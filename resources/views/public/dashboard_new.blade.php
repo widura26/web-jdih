@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('assets/css/public2.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/css/card.css') }}"> --}}
     {{-- <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}"> --}}
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -86,109 +87,72 @@
         </div> --}}
       </div>
     </div>
-
+    {{-- @include('partials.flex') --}}
     <div class="isi">
+      <div class="button-semuaDokumen">
+        <button onclick="window.location.href ='{{ route('public.semuaDokumen') }}'">
+          Semua Dokumen
+        </button>
+      </div>
       <div class="isi-semuaDokumen-dokumenTerbaru">
-
+        
+    
         <div class="semua">
-  
           <div class="semuaDokumen">
-            <div class="baris">
-              @foreach ($dokumen as $item)
-
-                {{-- <div class="kolom"> --}}
-                  <div class="box-dokumen">
+            <div class="box-dokumen">
+              <div class="baris">
+                @foreach ($dokumen as $item)
+                  <a href="{{ route('public.detailDokumen', $item->id) }}" class="box-link">
+  
                     <div class="judul-box">
                       <h5>{{ $item->kategori->singkatan }} No. {{ $item->nomor }} Tahun 2022</h5>
                     </div>
-                    <a href="{{ route('public.detailDokumen', $item->id) }}">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
-                        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
-                        <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
-                      </svg>
-                      Lihat Dokumen
-                    </a>
-                    
-                    {{-- <div class="isi-box">
-                      <h5>
-                        <a href="{{ route('public.detailDokumen', $item->id) }}">{{ $item->judul }}</a>
-                      </h5>
-                    </div> --}}
-                  </div>
-                {{-- </div> --}}
                 
-              @endforeach
-            </div>
-            <div class="paginate">
-              <div class="pagination">
-                <a href="{{ route('public.semuaDokumen') }}">Semua Dokumen</a>
+                    <div class="container-box">
+                
+                      <div class="isi-box">
+                        <div class="text">
+  
+                          {{ $item->kategori->singkatan }} Tentang {{ $item->judul }}
+                        </div>
+                      </div>
+                
+                    </div>
+                  </a>
+                @endforeach
               </div>
             </div>
           </div>
-
+    
           <div class="dokumenTerbaru-jumlahDokumen">
-
+    
             <div class="dokumenTerbaru">
               {{-- margin --}}
               <div class="dokumen-terbaru">
                 {{-- padding --}}
-                <h4>Dokumen Peraturan Terbaru</h4>
+                <div class="judul-dokumen-terbaru">
+                  <h4>Dokumen Peraturan Terbaru</h4>
+                </div>
                 <div class="daftar-dokumen-terbaru">
-                  @if($document->count())
+                  @if($dokumen->count())
                   <div class="dokumen-1">
-                    <h5>{{ $document[0]->judul }}</h5>
-                    <p>Tentang {{ $document[0]->kategori->singkatan }} Tahun 2022</p>
+                    <h5>{{ $dokumen[0]->judul }}</h5>
+                    <p>Tentang {{ $dokumen[0]->kategori->singkatan }} Tahun 2022</p>
                   </div>
                   @endif
                 </div>
               </div>
-
+    
             </div>
-
-            {{-- <div class="jumlahDokumen">
-              <div class="jumlah-dokumen">
-                <h4>Daftar Kategori</h4>
-                <div class="daftar-kategori">
-                  @foreach ($category as $item)    
-                    <div class="dokumen-1">
-                      <h5>{{ $item->singkatan }}</h5>
-                      <h1>{{ $item->dokumen->count() }}</h1>
-                    </div>
-                  @endforeach
-                </div>
-              </div>
-            </div> --}}
           </div>
-
+    
         </div>
       </div>
     </div>
 
-    <div class="container-footer">
-      <div class="wrapper-footer">
-        <div class="footer">
-          <div class="footer-section">
-            <h3>JDIH Desa Tambong</h3>
-            <p>Copyright 2022</p>
-          </div>
-          <div class="footer-section">
-            <h3>Peraturan</h3>
-            <li><a href="">Peraturan Desa</a></li>
-            <li><a href="">Peraturan Bersama Kepala Desa</a></li>
-            <li><a href="">Peraturan Kepala Desa</a></li>
-            <li><a href="">Surat Keputusan Kepala Desa</a></li>
-          </div>
-          <div class="footer-section">
-            <h3>Contact</h3>
-            <p>Jl. Bengawan No.5, Banyuwangi</p>
-            <p>Kode pos: 68415</p>
-          </div>
-          <div class="footer-section">
-            <h3>Social</h3>
-            <p><b>Youtube: WiduraHasta</b></p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <x-footer>
+
+    </x-footer>
+
   </body>
 </html>

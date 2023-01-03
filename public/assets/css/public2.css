@@ -1,10 +1,48 @@
 *{
   /* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap'); */
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Manrope', sans-serif;
 }
 body{
   margin: 0;
   padding: 0;
+}
+
+.button-semuaDokumen{
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.button-semuaDokumen button{
+  border: 0;
+  background-color: #7700ff;
+  box-shadow: 0 0 10px 5px #e0e0e0;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.button-semuaDokumen button:hover{
+  background-color: #5f01cb;
+  transition: 2s;
+}
+
+.judul-box{
+  background-color: #7700FF;
+  padding: 10px;
+  color: #fff;
+}
+
+.container-box{
+  margin: 10px 10px 10px 10px;
+
+}
+
+.isi-box{
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: black;
 }
 
 .homepage{
@@ -13,329 +51,143 @@ body{
 
 .konten{
   padding: 5%;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
 }
 
 .judul{
-  margin: auto;
-  width: 60%;
-  /* border: 1px solid #cfcfcf; */
+  margin: 10px;
 }
 
 .judul h1 {
+  /* padding: 10px; */
   text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
 }
 
 .judul p {
   text-align: center;
+  /* font-size: 2rem; */
 }
-
-.pencarian{
-  width: 80%;
-  margin: auto;
-}
-
 .isi{
   width: 100%;
 }
 
+
+
 .isi .isi-semuaDokumen-dokumenTerbaru{
   padding: 4%;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
 }
 
 .isi .isi-semuaDokumen-dokumenTerbaru .semua{
   flex-wrap: wrap;
   display: flex;
-  /* flex-wrap: wrap; */
+  background-color: white;
 }
 
 .semuaDokumen{
   margin: 10px;
-  flex: 4;
+  flex: 3;
+}
+
+.box-dokumen{
+  margin: 10px;
 }
 
 .baris{
   display: grid;
   /* height: 200px; */
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
   /* width: 100%; */
 }
 
-.paginate{
-  margin-top: 20px;
-  /* display: inline-block; */
-  /* position: relative; */
-}
-
-.paginate .pagination{
-  margin: auto;
-  width: 50%;
-  justify-content: center;
-}
-
-.box-dokumen{
-  height: 200px;
-  background-color: #ededed;
-}
-
-.judul-box{
-  background-color: #7700FF;
-  padding: 10px;
-}
-
-
-.isi-box a{
-  color: rgb(0, 0, 0);
+.box-link{
+  background-color: #fff;
+  box-shadow: 0 0 10px 5px #e0e0e0;
   text-decoration: none;
+  /* margin: 10px */
 }
 
-.bawah-box{
-  background-color: #6d6d6d;
-  margin-bottom: 0;
+
+.box-link:hover{
+  background-color: #e0e0e0;
+  transition: 1s ease-out;
 }
 
+
+.tombol{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tombol button{
+  /* justify-content: center; */
+  border: 0;
+  background-color: #7700FF;
+  box-shadow: 0 0 10px 5px #e0e0e0;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.tombol button:hover{
+  background-color: #5f01cb;
+  transition: 2s;
+}
+
+
+.dokumen-1 h5{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .dokumenTerbaru-jumlahDokumen{
-  /* display: grid; */
   margin: 10px;
-  /* padding: 10px; */
-  /* grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); */
-  /* grid-gap: 20px;
-  grid-template-rows: repeat(auto-fit, minmax(400px, 1fr)); */
   flex: 2;
 }
 
-/* .dokumenTerbaru{
-  margin: 10px;
-} */
 .dokumen-terbaru{
-  border: 1px solid #ccc;
+  box-shadow: 0 0 20px 2px #e0e0e0;
 }
-.dokumen-terbaru h4{
+.judul-dokumen-terbaru h4{
   padding: 10px;
-  background-color: #fff;
-  /* text-decoration: none; */
+
+  background-color: rgb(201, 201, 201);
+
 }
 
 .dokumen-terbaru .daftar-dokumen-terbaru{
   background-color: #fff;
 }
 
-.box-dokumen a{
-  padding: 10px;
-}
-
 .daftar-dokumen-terbaru .dokumen-1{
   padding: 10px;
 }
 
-.jumlahDokumen{
-  margin-top: 10px;
-}
-
-.jumlah-dokumen h4{
-  padding: 10px;
-  background-color: #fff;
-}
-
-/* .jumlah-dokumen .daftar-kategori{
-  background-color: #fff;
-  border-radius: 10px;
-} */
-
-.daftar-kategori .dokumen-1{
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: #fff;
-}
-
-.container-footer{
-  background-color: #7700FF;
-  color: #fff;
-  height: auto;
-  width: 100%;
-}
-
-.footer{
-  height: 30vh;
-  width: 100%;
-  position: relative;
-  display: inline-flex;
-  flex-wrap: wrap;
-  margin: auto;
-  padding: 30px 0 30px 0;
-}
-
-.footer-section{
-  width: 20%;
-  margin: 0 auto;
-}
-
-.footer .footer-section li{
-  list-style-type: none;
-  padding: auto;
-}
- .footer .footer-section li a{
-  text-decoration: none;
-  color: #364f6b;
-  padding: 0;
-}
-
-@media screen and (max-width: 768px){
-
-  .baris{
-    display: block;
+@media  all and (max-width: 768px) {
+  .isi .isi-semuaDokumen-dokumenTerbaru{
+    padding: 10px 5% 10px;
+   
   }
 
-  .isi .isi-semuaDokumen-dokumenTerbaru .semua{
-    width: 100%;
-    display: block;
-  }
-
-  .box-dokumen{
-    background-color: rgb(255, 255, 255);
-    height: 200px;
-    margin-bottom: 10px;
-    /* width: 100%; */
-  }
-
-  svg{
-    padding: 10px;
-  }
-
-  .judul-box{
-    /* margin: 10px; */
-    /* padding: 10px; */
-    background-color: #7700FF;
-    /* color: #fff; */
-  }
-  .dokumenTerbaru-jumlahDokumen{
-    margin: 10px;
-  }
-
-  .isi-semuaDokumen-dokumenTerbaru{
-    padding: 0;
-  }
-
-  .jumlahDokumen{
-    display: none;
-  }
-  .container-footer{
-    background-color: #7700FF;
-    color: #fff;
-  }
-
-  .pagination a{
-    font-size: 10px;
-  }
-  .footer{
-    /* height: 30vh; */
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-    padding: 30px 0 30px 0;
-  }
-  
-  .footer-section{
-    width: 20%;
-    margin: 0 auto;
-  }
-  
-  .footer .footer-section li{
-    list-style-type: none;
-    padding: auto;
-  }
-   .footer .footer-section li a{
-    text-decoration: none;
-    color: #364f6b;
-    padding: 0;
-  }
-}
-
-@media screen and (max-width: 576px){
-  .homepage{
+  .isi-semuaDokumen-dokumenTerbaru .semua{
     background-color: #fff;
-    width: auto;
+
   }
 
+}
+@media  all and (max-width: 576px) {
   .baris{
+    columns: 3;
+  }
+
+  .box-link{
     display: block;
   }
 
-  .isi .isi-semuaDokumen-dokumenTerbaru .semua{
-    width: 100%;
-    display: block;
-  }
-
-  .box-dokumen{
-    background-color: #ededed;
-    height: auto;
-    margin-bottom: 10px;
-    /* width: 100%; */
-  }
-
-  svg{
-    padding: 10px;
-  }
-
-  .judul-box{
-    /* margin: 10px; */
-    /* padding: 10px; */
-    color: #fff;
-    background-color: #7700FF;
-    /* color: #fff; */
-  }
-  .dokumenTerbaru-jumlahDokumen{
-    margin: 10px;
-  }
-
-  .isi-semuaDokumen-dokumenTerbaru{
-    padding: 0;
-  }
-
-  .jumlahDokumen{
-    display: none;
-  }
-  .container-footer{
-    background-color: #7700FF;
-    color: #fff;
-    height: auto;
-  }
-
-  .pagination a{
-    font-size: 16px;
-  }
-  .footer{
-    /* height: 30vh; */
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-    padding: 30px 0 30px 0;
-  }
-  
-  .footer-section{
-    width: 20%;
-    margin: 0 auto;
-  }
-  
-  .footer .footer-section li{
-    list-style-type: none;
-    padding: auto;
-  }
-   .footer .footer-section li a{
-    text-decoration: none;
-    padding: 0;
-    font-size: 10px;
-    color: #fff;
-  }
-
-  .footer .footer-section h3{
-    font-size: 16px;
-  }
-  .footer .footer-section p{
-    font-size: 12px;
-  }
 }

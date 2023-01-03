@@ -4,8 +4,9 @@ body{
 }
 
 .container-detail{
+
   background-color: rgb(240, 240, 240);
-  /* margin: 0; */
+  width: 100%;
 }
 
 .wrapper{
@@ -13,23 +14,8 @@ body{
   padding-bottom: 0;
 }
 
-.wrapper-dokumen{
-  /* background-color: aqua; */
-  padding: 5%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
 .container-dokumen{
   background-color: rgb(240, 240, 240);
-}
-
-.box-dokumen{
-  flex-wrap: wrap;
-  display: flex;
-  /* height: 20vh; */
-  /* padding: 5%; */
-  /* background-color: #fff; */
 }
 
 .wrapper-file{
@@ -59,60 +45,6 @@ iframe{
   flex: 2;
   margin-left: 5px;
   background-color: #fff;
-}
-
-.wrapper-dokumen .box-dokumen-terkait{
-  background-color: rgb(255, 255, 255);
-  flex: 2;
-  border: 1px solid #ccc;
-  margin-right: 5px;
-  height: 40vh;
-}
-.wrapper-dokumen .box-dokumen-pengganti{
-  background-color: #fff;
-  flex: 2;
-  border: 1px solid #ccc;
-  margin-left: 5px;
-  height: 40vh;
-}
-
-.box-dokumen-pengganti{
-  padding: 10px 10px 10px 10px;
-  /* overflow: auto; */
-}
-
-.box-dokumen-terkait{
-  padding: 10px;
-}
-
-.daftar-dokumen-terkait{
-  /* border: 1px #ccc solid; */
-  /* border-radius: 10px; */
-  /* box-shadow: 0 4px 4px 0 rgba(0,0,0,.2); */
-  /* border: 1px solid #ccc; */
-  overflow: auto;
-  /* bottom: 0px; */
-  /* margin-bottom: 20px; */
-  height: 250px;
-  scroll-padding-right: 10px
-  ;
-  /* scroll-margin-left: 10px; */
-  background-color: #fff;
-}
-
-.box-dokumen-pengganti h5{
-  text-align: center;
-}
-.box-dokumen-terkait h5{
-  text-align: center;
-}
-
-.daftar{
-  background-color: rgb(224, 224, 224);
-  padding: 10px;
-  width: 100%;
-  margin-bottom: 10px;
-  border-radius: 10px;
 }
 
 .dokumen-not-found{
@@ -156,15 +88,163 @@ iframe{
   padding: 0;
 }
 
-.daftar h4{
-  font-size: 20px;
+.isi{
+  width: 100%;
 }
 
-.judul-dokumen {
-  background-color: #364f6b;
-  color:#fff;
-  /* display: block; */
+.isi .isi-semuaDokumen-dokumenTerbaru{
+  padding: 10px 5% 10px;
+ 
 }
-.judul-dokumen h5 {
-  padding: 5px;
+
+.isi-semuaDokumen-dokumenTerbaru .semua{
+  flex-wrap: wrap ;
+  display: flex;
+  background-color: #fff;
 }
+
+.semuaDokumen{
+  margin: 10px;
+  flex: 2;
+  /* overflow: auto; */
+}
+
+.dokumenTerbaru{
+  margin: 10px;
+}
+
+.judul-dokumen-terbaru h4{
+  padding: 10px;
+  text-align: center;
+}
+
+.baris{
+  /* overflow: auto; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  /* height: 30vh; */
+  /* width: 100%; */
+}
+
+.box-link{
+  background-color: #fff;
+  box-shadow: 0 0 10px 5px #e0e0e0;
+  text-decoration: none;
+}
+
+.box-link:hover{
+  background-color: #e0e0e0;
+  transition: 1s ease-out;
+}
+
+.judul-box{
+  background-color: #7700FF;
+  padding: 10px;
+  color: #fff;
+}
+
+.container-box{
+  margin: 10px 10px 10px 10px;
+
+}
+
+.isi-box{
+  max-width: 100%;
+}
+.isi-box{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: black;
+}
+
+.tombol{
+  /* margin-top: 50px; */
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.tombol button{
+  width: 120px;
+  border: 0;
+  background-color: #7700ff;
+  /* box-shadow: 0 0 10px 5px #e0e0e0; */
+  color: #fff;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.tombol button:hover{
+  background-color: #5f01cb;
+  transition: 2s;
+}
+
+
+
+.dokumenTerbaru-jumlahDokumen{
+  /* display: grid; */
+  margin: 10px;
+  /* padding: 10px; */
+  /* grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); */
+  /* grid-gap: 20px;
+  grid-template-rows: repeat(auto-fit, minmax(400px, 1fr)); */
+  flex: 2;
+}
+
+
+.dokumen-terbaru{
+  box-shadow: 0 0 20px 2px #e0e0e0;
+}
+
+
+.dokumen-terbaru .daftar-dokumen-terbaru{
+  background-color: #fff;
+}
+
+.daftar-dokumen-terbaru .dokumen-1{
+  margin: 10px;
+  padding: 10px;
+}
+
+
+
+
+@media all and (max-width: 768px) {
+  .box-kategori{
+    display: none;
+  }
+
+  .isi .isi-semuaDokumen-dokumenTerbaru{
+    padding: 10px 5% 10px;
+   
+  }
+
+  .isi-semuaDokumen-dokumenTerbaru .semua{
+    background-color: #fff;
+
+  }
+
+}
+
+@media all and (max-width: 576px){
+  .box-frame{
+    width: 100%;
+  }
+
+  .box-link{
+    display: block;
+  }
+
+  .box-file{
+    display: block;
+  }
+
+  iframe{
+    width: 100%;
+    padding: 10px;
+
+  }
+}
+

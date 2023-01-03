@@ -4,16 +4,13 @@ body{
 }
 
 .bagian-search{
-  /* padding: 5%; */
+  padding: 5%;
   /* background-color: rgb(255, 204, 0); */
 }
 
-.bagian-search .search{
-  padding: 5%;
-  /* background-color: rgb(198, 158, 0); */
-}
 .bagian-dokumen{
   padding: 5%;
+
 }
 
 .container-dokumen{
@@ -36,34 +33,10 @@ body{
   justify-content: center;
 }
 
-.container-footer{
-  background-color: #dedede;
-  height: auto;
-}
-
-.footer{
-  height: 30vh;
-  width: 100%;
-  position: relative;
-  display: inline-flex;
-  flex-wrap: wrap;
-  margin: auto;
-  padding: 30px 0 30px 0;
-}
-
-.footer-section{
-  width: 20%;
-  margin: 0 auto;
-}
-
-.footer .footer-section li{
-  list-style-type: none;
-  padding: auto;
-}
- .footer .footer-section li a{
-  text-decoration: none;
-  color: #364f6b;
-  padding: 0;
+.isi p{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .box h5{
@@ -79,3 +52,9 @@ body{
 .box .isi{
   padding: 10px;
 }
+/* 
+@media screen and (max-width: 768px){
+  .bagian-dokumen{
+    height: 70vh;
+  }
+} */
