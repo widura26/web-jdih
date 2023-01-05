@@ -70,85 +70,88 @@
         </div>
       </div>
     </div> --}}
-    <div class="homepage">
-      <div class="konten">
-        <div class="judul">
-          <h1>JDIH Desa Tambong</h1>
-          <p>Jaringan Dokumen Informasi Hukum<br>Desa tambong, Banyuwangi 2022</p>
-          {{-- <p>Desa Tambong, Banyuwangi 2022</p> --}}
+    <div class="container-dashboard">
+      <div class="homepage">
+        <div class="konten">
+          <div class="judul">
+            <h1>JDIH Desa Tambong</h1>
+            <p>Jaringan Dokumen Informasi Hukum<br>Desa tambong, Banyuwangi 2022</p>
+            {{-- <p>Desa Tambong, Banyuwangi 2022</p> --}}
+          </div>
+          {{-- <div class="pencarian">
+            <form action="" method="">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Cari dokumen" name="search" value="">
+                <button class="btn btn-dark" type="submit">Cari</button>
+              </div>
+            </form>
+          </div> --}}
         </div>
-        {{-- <div class="pencarian">
-          <form action="" method="">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Cari dokumen" name="search" value="">
-              <button class="btn btn-dark" type="submit">Cari</button>
+      </div>
+      <div class="isi">
+        <div class="isi-semuaDokumen-dokumenTerbaru">
+          
+          <div class="semua">
+            <div class="semuaDokumen">
+              <div class="box-dokumen">
+                <div class="baris">
+                  @foreach ($dokumen as $item)
+                    <a href="{{ route('public.detailDokumen', $item->id) }}" class="box-link">
+    
+                      <div class="judul-box">
+                        <h5>{{ $item->kategori->singkatan }} No. {{ $item->nomor }} Tahun 2022</h5>
+                      </div>
+                  
+                      <div class="container-box">
+                  
+                        <div class="isi-box">
+                          <div class="text">
+    
+                            {{ $item->kategori->singkatan }} Tentang {{ $item->judul }}
+                          </div>
+                        </div>
+                  
+                      </div>
+                    </a>
+                  @endforeach
+                </div>
+              </div>
             </div>
-          </form>
-        </div> --}}
+      
+            <div class="dokumenTerbaru-jumlahDokumen">
+      
+              <div class="dokumenTerbaru">
+                {{-- margin --}}
+                <div class="dokumen-terbaru">
+                  {{-- padding --}}
+                  <div class="judul-dokumen-terbaru">
+                    <h4>Dokumen Peraturan Terbaru</h4>
+                  </div>
+                  <div class="daftar-dokumen-terbaru">
+                    @if($dokumen->count())
+                    <div class="dokumen-1">
+                      <h5>{{ $dokumen[0]->judul }}</h5>
+                      <p>Tentang {{ $dokumen[0]->kategori->singkatan }} Tahun 2022</p>
+                    </div>
+                    @endif
+                  </div>
+                </div>
+      
+              </div>
+            </div>
+      
+          </div>
+          <div class="button-semuaDokumen">
+            <div class="tombol">
+              <button onclick="window.location.href ='{{ route('public.semuaDokumen') }}'">
+                Semua Dokumen
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     {{-- @include('partials.flex') --}}
-    <div class="isi">
-      <div class="button-semuaDokumen">
-        <button onclick="window.location.href ='{{ route('public.semuaDokumen') }}'">
-          Semua Dokumen
-        </button>
-      </div>
-      <div class="isi-semuaDokumen-dokumenTerbaru">
-        
-    
-        <div class="semua">
-          <div class="semuaDokumen">
-            <div class="box-dokumen">
-              <div class="baris">
-                @foreach ($dokumen as $item)
-                  <a href="{{ route('public.detailDokumen', $item->id) }}" class="box-link">
-  
-                    <div class="judul-box">
-                      <h5>{{ $item->kategori->singkatan }} No. {{ $item->nomor }} Tahun 2022</h5>
-                    </div>
-                
-                    <div class="container-box">
-                
-                      <div class="isi-box">
-                        <div class="text">
-  
-                          {{ $item->kategori->singkatan }} Tentang {{ $item->judul }}
-                        </div>
-                      </div>
-                
-                    </div>
-                  </a>
-                @endforeach
-              </div>
-            </div>
-          </div>
-    
-          <div class="dokumenTerbaru-jumlahDokumen">
-    
-            <div class="dokumenTerbaru">
-              {{-- margin --}}
-              <div class="dokumen-terbaru">
-                {{-- padding --}}
-                <div class="judul-dokumen-terbaru">
-                  <h4>Dokumen Peraturan Terbaru</h4>
-                </div>
-                <div class="daftar-dokumen-terbaru">
-                  @if($dokumen->count())
-                  <div class="dokumen-1">
-                    <h5>{{ $dokumen[0]->judul }}</h5>
-                    <p>Tentang {{ $dokumen[0]->kategori->singkatan }} Tahun 2022</p>
-                  </div>
-                  @endif
-                </div>
-              </div>
-    
-            </div>
-          </div>
-    
-        </div>
-      </div>
-    </div>
 
     <x-footer>
 

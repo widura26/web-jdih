@@ -13,10 +13,23 @@ body{
 
 }
 
+.container-pertama{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.box-dokumen{
+  padding: 5px;
+  /* height: 400px; */
+}
+
 .container-dokumen{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 20px;
+  /* height: 978px; */
 }
 
 .box{
@@ -52,9 +65,13 @@ body{
 .box .isi{
   padding: 10px;
 }
-/* 
-@media screen and (max-width: 768px){
-  .bagian-dokumen{
-    height: 70vh;
+
+@media screen and (max-width: 576px){
+
+  .container-dokumen{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+    /* height: 978px; */
   }
-} */
+}

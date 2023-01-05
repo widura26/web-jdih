@@ -5,14 +5,24 @@
 body{
   margin: 0;
   padding: 0;
+  /* background-color: #ba0000; */
+}
+
+.container-dashboard{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .button-semuaDokumen{
-  padding-left: 10px;
-  padding-bottom: 10px;
+  padding: 20px;
 }
 
+
 .button-semuaDokumen button{
+  /* display: flex; */
+  place-content: center;
   border: 0;
   background-color: #7700ff;
   box-shadow: 0 0 10px 5px #e0e0e0;
@@ -38,7 +48,7 @@ body{
 }
 
 .isi-box{
-  max-width: 100%;
+  /* max-width: 100%; */
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -71,12 +81,14 @@ body{
 }
 .isi{
   width: 100%;
+  /* background-color: #e0e0e0; */
 }
 
 
 
 .isi .isi-semuaDokumen-dokumenTerbaru{
   padding: 4%;
+  
   /* padding-bottom: 10px; */
 }
 
@@ -84,21 +96,20 @@ body{
   flex-wrap: wrap;
   display: flex;
   background-color: white;
+  box-shadow: 0 0 5px 2px #e0e0e0;
+  padding: 20px;
 }
 
 .semuaDokumen{
-  margin: 10px;
+  padding: 10px;
   flex: 3;
-}
-
-.box-dokumen{
-  margin: 10px;
 }
 
 .baris{
   display: grid;
   /* height: 200px; */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  /* grid-template-columns: 1fr; */
   grid-gap: 20px;
   /* width: 100%; */
 }
@@ -118,7 +129,6 @@ body{
 
 
 .tombol{
-  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,7 +157,7 @@ body{
   overflow: hidden;
 }
 .dokumenTerbaru-jumlahDokumen{
-  margin: 10px;
+  padding: 10px;
   flex: 2;
 }
 
@@ -169,25 +179,29 @@ body{
   padding: 10px;
 }
 
-@media  all and (max-width: 768px) {
+@media  all and (max-width: 576px) {
+
+  .judul h1 {
+    /* padding: 10px; */
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+  }
   .isi .isi-semuaDokumen-dokumenTerbaru{
     padding: 10px 5% 10px;
    
   }
+  
 
   .isi-semuaDokumen-dokumenTerbaru .semua{
     background-color: #fff;
 
   }
-
-}
-@media  all and (max-width: 576px) {
   .baris{
-    columns: 3;
-  }
+    display: grid;
+    grid-gap: 20px;
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
-  .box-link{
-    display: block;
   }
 
 }

@@ -11,6 +11,8 @@ use App\Models\Kategori;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+// use Barryvdh\DomPDF\Facades\Pdf;
+use PDF;
 
 class PublicController extends Controller
 {

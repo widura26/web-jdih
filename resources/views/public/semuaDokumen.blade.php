@@ -14,27 +14,30 @@
   @include('partials.navpublic')
   <div class="container-pertama">
 
-    <div class="bagian-search">
-      <div class="search">
-        <form action="{{ route('public.semuaDokumen') }}" method="GET">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Cari dokumen" name="search">
-            <button class="btn btn-primary" type="submit">Cari</button>
-          </div>
-        </form>
+    <div>
+      <div class="bagian-search">
+        <div class="search">
+          <form action="{{ route('public.semuaDokumen') }}" method="GET">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Cari dokumen" name="search">
+              <button class="btn btn-primary" type="submit">Cari</button>
+            </div>
+          </form>
+        </div>
+        
       </div>
-      
-    </div>
-
-    <div class="bagian-dokumen">
-      <div class="container-dokumen">
-        @foreach ($dokumen as $item)
-          @include('components.card')
-        @endforeach
+      <div class="bagian-dokumen">
+        <div class="box-dokumen">
+          <div class="container-dokumen">
+            @foreach ($dokumen as $item)
+              @include('components.card')
+            @endforeach
+          </div>
+        </div>
       </div>
     </div>
 
   </div>
-  <x-footer></x-footer>
+  @include('components.footer')
 </body>
 </html>
