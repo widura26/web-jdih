@@ -87,3 +87,4 @@ route::prefix('public')->group(function(){
 });
 
 Route::get('/', [PublicController::class, 'dashboard'])->name('public.dashboard');
+Route::get('/view-pdf/{id}', [PublicController::class, 'review'])->name('public.review');

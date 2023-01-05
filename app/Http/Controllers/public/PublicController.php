@@ -66,6 +66,11 @@ class PublicController extends Controller
         ]);
     }
 
+    public function review($id){
+        $file = DB::table('dokumen')->where('id', $id)->first();
+        return readfile("storage/{$file->dokumen}");
+    }
+
     public function dokBasedKategori(Kategori $kategori){
 
         return view('public.dokBasedKategori', [
