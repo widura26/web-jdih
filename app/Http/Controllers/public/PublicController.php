@@ -11,13 +11,21 @@ use App\Models\Kategori;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
-// use Barryvdh\DomPDF\Facades\Pdf;
-use PDF;
+use Barryvdh\DomPDF\PDF;
 
 class PublicController extends Controller
 {
     use KategoriTrait;
     use StatusDokumenTrait;
+
+    public function public(){
+        $category = $this->jenisDokumen();
+        return view('template.public', [
+            "active" => "home",
+            "category" => $category
+        ]);
+    }
+
 
     public function dashboard(){
         
@@ -64,11 +72,6 @@ class PublicController extends Controller
             "active" => "home",
             "dokumen" => $dokumen
         ]);
-    }
-
-    public function review($id){
-        $file = DB::table('dokumen')->where('id', $id)->first();
-        return readfile("storage/{$file->dokumen}");
     }
 
     public function dokBasedKategori(Kategori $kategori){

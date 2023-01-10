@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
 Route::group(['prefix' => 'home/'], function () {
     Route::get('/homepage', [HomeController::class, 'homepageView'])->name('homepageView');
@@ -87,4 +87,6 @@ route::prefix('public')->group(function(){
 });
 
 Route::get('/', [PublicController::class, 'dashboard'])->name('public.dashboard');
-Route::get('/view-pdf/{id}', [PublicController::class, 'review'])->name('public.review');
+Route::get('public', [PublicController::class, 'public']);
+Route::get('view-pdf', [PublicController::class, 'review'])->name('public.review');
+

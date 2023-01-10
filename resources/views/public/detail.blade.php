@@ -6,6 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
   <link rel="stylesheet" href="{{ asset('assets/css/detail.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/canvas.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.2.146/build/pdf.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <title>JDIH Tambong | {{ $title }}</title>
@@ -68,15 +71,7 @@
                           </svg>
                           Download
                         </button>
-                        <form action="{{ route('public.review', $document->id) }}" method="get">
-                          <button>
-                            {{-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
-                              <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                              <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-                            </svg> --}}
-                            Lihat Dokumen
-                          </button>
-                        </form>
+                        {{-- <a href="{{ route('public.review') }}">Download PDF</a> --}}
                       </div>
                     </td>
                  @endif
@@ -118,7 +113,8 @@
                         
                               <div class="isi-box">
                                 <div class="text">
-                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nam ullam incidunt temporibus, iusto dolore sit aut eos facere vitae.</p>
+                                  {{-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nam ullam incidunt temporibus, iusto dolore sit aut eos facere vitae.</p> --}}
+                                  Tentang {{ $dokumen->judul }}
                                 </div>
                               </div>
                         
@@ -197,23 +193,25 @@
     
   </div>
 
-  {{-- <div class="container-dokumen">
+  <div class="container-dokumen">
     @if($document->dokumen !== null)
       <div class="wrapper-file">
         <div class="box-file">
           <div class="box-frame">
-            <iframe src="{{ asset('storage/'. $document->dokumen) }}" width="100%" height="800px"></iframe>
+            {{-- <div id="app"></div> --}}
+            {{-- <iframe src="{{ asset('storage/'. $document->dokumen) }}" width="100%" height="800px"></iframe> --}}
           </div>
           <div class="box-kategori">
           </div>
         </div>
 
       </div>
+      
     @else
     @endif
-  </div> --}}
+  </div>
   <x-footer></x-footer>
-
+  <script src="{{ asset('assets/js/convert.js') }}"></script>
 </body>
 </html>
     

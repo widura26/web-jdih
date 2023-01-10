@@ -1,3 +1,7 @@
+*{
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300&family=Montserrat:wght@800&family=Roboto&display=swap');
+}
+
 body{
   margin: 0;
   padding: 0;
@@ -20,6 +24,7 @@ body{
 
 .container-dokumen{
   background-color: rgb(240, 240, 240);
+  display: none;
 }
 
 .wrapper-file{
@@ -32,10 +37,15 @@ body{
   flex-wrap: wrap;
 }
 
-iframe{
+.container-canvas{
   width: 100%;
   padding: 10px;
   /* margin: 10px; */
+}
+
+canvas{
+  display: block;
+  width: 100%;
 }
 .box-frame{
   flex: 4;
@@ -123,10 +133,11 @@ iframe{
 }
 
 .baris{
-  /* overflow: auto; */
+  box-shadow: 0 0 20px 2px #e0e0e0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
+  background-color: #fff;
   /* height: 30vh; */
   /* width: 100%; */
 }
@@ -161,6 +172,7 @@ iframe{
   white-space: nowrap;
   text-overflow: ellipsis;
   color: black;
+  -webkit-line-clamp: 1;
 }
 
 .tombol{
@@ -217,7 +229,7 @@ iframe{
 
 @media all and (max-width: 768px) {
   .box-kategori{
-    display: none;
+    /* display: none; */
   }
 
   .isi .isi-semuaDokumen-dokumenTerbaru{
@@ -256,9 +268,9 @@ iframe{
     display: block;
   }
 
-  .container-dokumen{
+  /* .container-dokumen{
     display: none;
-  }
+  } */
 
   .tombol{
     /* margin-top: 50px; */

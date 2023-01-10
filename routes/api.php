@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\api\DokController;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,4 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('users', AdminController::class);
+Route::apiResource('admin', AdminController::class);
+Route::apiResource('dokumen', DokController::class);
 

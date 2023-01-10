@@ -88,8 +88,12 @@ class AdminController extends Controller
         if($request->file('dokumen')){
             $validatedData['dokumen'] = $request->file('dokumen')->store('post-dokumen');
         }
-        Dokumen::create($validatedData);
+
+        $create = Dokumen::create($validatedData);
         return redirect()->route('admin.semuaDokumen')->with('info', 'Tambah dokumen berhasil');
+        return response()->json([
+            'data' => $create
+        ]);
         // $data = new Dokumen();
         // $data->judul = $request->judul;
         // $data->kategori_id = $request->kategori_id;
