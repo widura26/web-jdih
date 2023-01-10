@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
   <link rel="stylesheet" href="{{ asset('assets/css/detail.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/canvas.css') }}">
+  {{-- <link rel="stylesheet" href="{{ asset('assets/css/canvas.css') }}"> --}}
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.2.146/build/pdf.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -198,6 +198,7 @@
       <div class="wrapper-file">
         <div class="box-file">
           <div class="box-frame">
+            <div id="pdfViewerDiv" class="container-canvas"></div>
             {{-- <div id="app"></div> --}}
             {{-- <iframe src="{{ asset('storage/'. $document->dokumen) }}" width="100%" height="800px"></iframe> --}}
           </div>
@@ -211,7 +212,40 @@
     @endif
   </div>
   <x-footer></x-footer>
-  <script src="{{ asset('assets/js/convert.js') }}"></script>
+  <script>
+    
+    initPDFViewer = () =>{
+      $("#pdfViewerDiv").html("")
+      pdfjsLib.getDocument("{{ asset('storage/'. $document->dokumen ) }}").promise.then(pdfDoc=>{
+        // console.log(pdfDoc)
+        let pages = pdfDoc._pdfInfo.numPages
+        for(let i=1; i<=pages; i++){
+          pdfDoc.getPage(i).then(page=>{
+            // console.log(page)
+            let pdfCanvas = document.createElement("canvas")
+            let context = pdfCanvas.getContext("2d")
+            let pageViewPort = page.getViewport({scale:3})
+            // console.log(pageViewPort)
+            pdfCanvas.width = pageViewPort.width
+            pdfCanvas.height = pageViewPort.height
+            $("#pdfViewerDiv").append(pdfCanvas)
+            page.render({
+              canvasContext:context,
+              viewport:pageViewPort
+            })
+          }).catch(pageErr=>{
+            console.log(pageErr)
+          })
+        }
+      }).catch(pdfErr=>{
+        console.log(pdfErr)
+      })
+    }
+
+    $(function(){
+      initPDFViewer()
+    })
+  </script>
 </body>
 </html>
     

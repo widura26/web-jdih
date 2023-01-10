@@ -1,5 +1,5 @@
 
-initPDFViewer=()=>{
+initPDFViewer = () =>{
   $("#pdfViewerDiv").html("")
   pdfjsLib.getDocument("public/storage/post-dokumen/sample.pdf").promise.then(pdfDoc=>{
     // console.log(pdfDoc)

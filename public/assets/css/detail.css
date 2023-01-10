@@ -24,7 +24,7 @@ body{
 
 .container-dokumen{
   background-color: rgb(240, 240, 240);
-  display: none;
+  /* display: none; */
 }
 
 .wrapper-file{
@@ -46,7 +46,10 @@ body{
 canvas{
   display: block;
   width: 100%;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px 5px #e0e0e0;
 }
+
 .box-frame{
   flex: 4;
   /* height: 20vh; */
@@ -106,12 +109,12 @@ canvas{
   width: 100%;
 }
 
-.isi .isi-semuaDokumen-dokumenTerbaru{
-  padding: 10px 5% 10px;
+.isi{
+  padding: 10px 5% 10px;;
  
 }
 
-.isi-semuaDokumen-dokumenTerbaru .semua{
+ .semua{
   flex-wrap: wrap ;
   display: flex;
   background-color: #fff;
