@@ -15,80 +15,81 @@
 </head>
 <body>
   @include('partials.navpublic')
+  <div class="bungkus">
 
-  <div class="container-detail">
-    <div>
-      <div class="wrapper">
-        <h5>Detail Peraturan</h5>
-        <div class="card">
-          <div class="card-body">
-            <table class="table">
-              <tbody>
-                <tr>
-                  <td>Judul</td>
-                  <td>:</td>
-                  <td>{{ $document->judul }}</td>
-                </tr>
-                <tr>
-                  <td>Kategori</td>
-                  <td>:</td>
-                  <td>{{ $document->kategori->singkatan }}</td>
-                </tr>
-                <tr>
-                  <td>Nomor</td>
-                  <td>:</td>
-                  <td>{{ $document->nomor }}</td>
-                </tr>
-                <tr>
-                  <td>Tahun</td>
-                  <td>:</td>
-                  <td>{{ $document->tahun }}</td>
-                </tr>
-                <tr>
-                  <td>Tanggal Pengesahan</td>
-                  <td>:</td>
-                  <td>{{ showDate($document->tanggal_pengesahan, 'j F Y') }}</td>
-                </tr>
-                <tr>
-                  <td>file</td>
-                  <td>:</td>
-                 @if ($document->dokumen == null)
-                     <td>File tidak disertakan</td>
-                 @else
-                    <td>
-                      {{-- <a href="{{ route('public.download', $document->id)}}" class="btn" style="background-color: #FED049 ">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
-                          <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                          <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-                        </svg>
-                        Download
-                      </a> --}}
-                      <div class="tombol">
-                        <button onclick="window.location.href ='{{ route('public.download', $document->id) }}'">
+    <div class="container-detail">
+        <div class="wrapper">
+          <h5>Detail Peraturan</h5>
+          <div class="card">
+            <div class="card-body">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>Judul</td>
+                    <td>:</td>
+                    <td>{{ $document->judul }}</td>
+                  </tr>
+                  <tr>
+                    <td>Kategori</td>
+                    <td>:</td>
+                    <td>{{ $document->kategori->singkatan }}</td>
+                  </tr>
+                  <tr>
+                    <td>Nomor</td>
+                    <td>:</td>
+                    <td>{{ $document->nomor }}</td>
+                  </tr>
+                  <tr>
+                    <td>Tahun</td>
+                    <td>:</td>
+                    <td>{{ $document->tahun }}</td>
+                  </tr>
+                  <tr>
+                    <td>Tanggal Pengesahan</td>
+                    <td>:</td>
+                    <td>{{ showDate($document->tanggal_pengesahan, 'j F Y') }}</td>
+                  </tr>
+                  <tr>
+                    <td>file</td>
+                    <td>:</td>
+                   @if ($document->dokumen == null)
+                       <td>File tidak disertakan</td>
+                   @else
+                      <td>
+                        {{-- <a href="{{ route('public.download', $document->id)}}" class="btn" style="background-color: #FED049 ">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
                             <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
                             <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
                           </svg>
                           Download
-                        </button>
-                        {{-- <a href="{{ route('public.review') }}">Download PDF</a> --}}
-                      </div>
-                    </td>
-                 @endif
-                </tr>
-                <tr>
-                  <td>Status</td>
-                  <td>:</td>
-                  <td>{{ $status }}</td>
-                </tr>
-              </tbody>
-            </table>
+                        </a> --}}
+                        <div class="tombol">
+                          <button onclick="window.location.href ='{{ route('public.download', $document->id) }}'">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                              <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                              <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                            </svg>
+                            Download
+                          </button>
+                          {{-- <a href="{{ route('public.review') }}">Download PDF</a> --}}
+                        </div>
+                      </td>
+                   @endif
+                  </tr>
+                  <tr>
+                    <td>Status</td>
+                    <td>:</td>
+                    <td>{{ $status }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="isi">
-        <div class="isi-semuaDokumen-dokumenTerbaru">
-      
+    </div>
+
+    <div class="container-dokumenTerkaitPengganti">
+      <div class="isi"> 
           <div class="semua">
       
             <div class="semuaDokumen">
@@ -187,31 +188,35 @@
             </div>
       
           </div>
-        </div>
       </div>
     </div>
-    
-  </div>
 
-  <div class="container-dokumen">
-    @if($document->dokumen !== null)
-      <div class="wrapper-file">
-        <div class="box-file">
-          <div class="box-frame">
-            <div id="pdfViewerDiv" class="container-canvas"></div>
-            {{-- <div id="app"></div> --}}
-            {{-- <iframe src="{{ asset('storage/'. $document->dokumen) }}" width="100%" height="800px"></iframe> --}}
+    <div class="container-dokumen">
+      @if($document->dokumen !== null)
+        <div class="wrapper-file">
+          <div class="box-file">
+            <div class="box-frame">
+              <div class="lihat-selengkapnya">
+                <a href="{{ asset('storage/'. $document->dokumen) }}" target="_blank" rel="noopener" rel="noreferrer">Lihat Selengkapnya</a>
+                {{-- <button onclick="window.location.href ='{{ route('public.viewFile', $document->dokumen) }}'">Lihat Selengkapnya</button> --}}
+              </div>
+              <div id="pdfViewerDiv" class="container-canvas"></div>
+              {{-- <div id="app"></div> --}}
+              {{-- <iframe src="{{ asset('storage/'. $document->dokumen) }}" width="100%" height="800px"></iframe> --}}
+            </div>
+            {{-- <div class="box-kategori">
+            </div> --}}
           </div>
-          <div class="box-kategori">
-          </div>
+  
         </div>
-
-      </div>
-      
-    @else
-    @endif
+        
+      @else
+      @endif
+    </div>
   </div>
+  
   <x-footer></x-footer>
+
   <script>
     
     initPDFViewer = () =>{
@@ -219,8 +224,8 @@
       pdfjsLib.getDocument("{{ asset('storage/'. $document->dokumen ) }}").promise.then(pdfDoc=>{
         // console.log(pdfDoc)
         let pages = pdfDoc._pdfInfo.numPages
-        for(let i=1; i<=pages; i++){
-          pdfDoc.getPage(i).then(page=>{
+        // for(let i=1; i<=pages; i++){
+          pdfDoc.getPage(1).then(page=>{
             // console.log(page)
             let pdfCanvas = document.createElement("canvas")
             let context = pdfCanvas.getContext("2d")
@@ -236,7 +241,7 @@
           }).catch(pageErr=>{
             console.log(pageErr)
           })
-        }
+        // }
       }).catch(pdfErr=>{
         console.log(pdfErr)
       })

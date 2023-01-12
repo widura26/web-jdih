@@ -16,12 +16,12 @@
       <div class="homepage">
         <div class="konten">
           <div class="judul">
-            <h1>JDIH Desa Tambong</h1>
-            <p>Jaringan Dokumen Informasi Hukum<br>Desa tambong, Banyuwangi 2022</p>
+            <h1>Selamat Datang</h1>
+            <p>Jaringan Dokumen Informasi Hukum<br>Desa tambong Banyuwangi</p>
           </div>
         </div>
       </div>
-      <div class="isi">
+      {{-- <div class="isi">
         <div class="isi-semuaDokumen-dokumenTerbaru">
           
           <div class="semua">
@@ -77,6 +77,104 @@
               <button onclick="window.location.href ='{{ route('public.semuaDokumen') }}'">
                 Semua Dokumen
               </button>
+            </div>
+          </div>
+        </div>
+      </div> --}}
+      <div class="bagian-dokumen">
+        <div class="container-dokumen">
+          <div class="judul-bagian">
+            <h3>Daftar Peraturan</h3>
+          </div>
+          <div class="baris-kolom-dokumen">
+            @foreach ($dokumen as $item)
+              <a href="{{ route('public.detailDokumen', $item->id) }}" class="box-dokumen">
+
+                <div class="box-judul">
+                  <h5>{{ $item->kategori->singkatan }} No. {{ $item->nomor }} Tahun 2022</h5>
+                </div>
+            
+                <div class="box-isi">
+                  <div class="text">{{ $item->kategori->singkatan }} Tentang {{ $item->judul }}</div>
+                </div>
+
+                <div class="box-footer">
+                  <div class="tanggal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
+                      <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+                      <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                    </svg>
+                    {{ showDate($item->tanggal_pengesahan, 'j F Y') }}
+                  </div>
+                </div>
+
+              </a>
+            @endforeach
+          </div>
+          <div class="button-semuaDokumen">
+            <div class="tombol">
+              <button onclick="window.location.href ='{{ route('public.semuaDokumen') }}'">
+                Semua Dokumen
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="dokumen-kategori">
+          <div class="judul-bagian">
+            <h3>Peraturan Terbaru</h3>
+          </div>
+          <div class="new-dokumen-kategori">
+            <div class="new-dokumen">
+              {{-- <a href="{{ route('public.detailDokumen', $item->id) }}" class="box-dokumen">
+  
+                <div class="box-judul">
+                  <h5>{{ $item->kategori->singkatan }} No. {{ $item->nomor }} Tahun 2022</h5>
+                </div>
+            
+                <div class="box-isi">
+                  <div class="text">{{ $item->kategori->singkatan }} Tentang {{ $item->judul }}</div>
+                </div>
+  
+                <div class="box-footer">
+                  <div class="tanggal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
+                      <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+                      <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                    </svg>
+                    {{ showDate($item->tanggal_pengesahan, 'j F Y') }}
+                  </div>
+                </div>
+  
+              </a> --}}
+              <div class="dokumenTerbaru-jumlahDokumen">
+        
+                <div class="dokumenTerbaru">
+                  <div class="dokumen-terbaru">
+                    <div class="judul-dokumen-terbaru">
+                      <h4>Dokumen Peraturan Terbaru</h4>
+                    </div>
+                    <div class="daftar-dokumen-terbaru">
+                      @if($dokumen->count())
+                      <div class="dokumen-1">
+                        <h5>{{ $dokumen[0]->judul }}</h5>
+                        <p>Tentang {{ $dokumen[0]->kategori->singkatan }} Tahun 2022</p>
+                      </div>
+                      @endif
+                    </div>
+                  </div>
+        
+                </div>
+              </div>
+            </div>
+            <div class="kategori">
+              <div class="daftar-kategori">
+                @foreach ($category as $item)
+                  <div class="jenis-kategori">
+                    <h5>{{ $item->singkatan }}</h5>
+                    <h3>{{ $item->dokumen->count() }}</h3>
+                  </div>
+                @endforeach
+              </div>
             </div>
           </div>
         </div>

@@ -29,11 +29,12 @@ body{
   color: #fff;
   padding: 10px;
   border-radius: 50px;
+  transition: transform 1s;
 }
 
 .button-semuaDokumen button:hover{
   background-color: #5f01cb;
-  transition: 2s;
+  transform: translateY(-5px);
 }
 
 .judul-box{
@@ -84,7 +85,52 @@ body{
   /* background-color: #e0e0e0; */
 }
 
+.dokumen-kategori{
+  margin-top: 40px;
+}
 
+.new-dokumen-kategori{
+  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.new-dokumen{
+  flex: 2;
+}
+
+.kategori{
+  flex: 4;
+}
+
+.daftar-kategori{
+  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.jenis-kategori{
+  background-color: aliceblue;
+  height: 200px;
+}
+
+.jenis-kategori h5{
+  padding: 10px;
+  text-align: center;
+}
+
+.jenis-kategori h3{
+  padding: 10px;
+  text-align: center;
+}
+
+.daftar-dokumen{
+  background-color: aqua;
+}
+
+.daftar-kategori li{
+  display: block;
+}
 
 .isi .isi-semuaDokumen-dokumenTerbaru{
   padding: 4%;
@@ -157,7 +203,7 @@ body{
   overflow: hidden;
 }
 .dokumenTerbaru-jumlahDokumen{
-  padding: 10px;
+  /* padding: 10px; */
   flex: 2;
 }
 
@@ -179,6 +225,51 @@ body{
   padding: 10px;
 }
 
+.bagian-dokumen{
+  padding: 5%;
+}
+
+.judul-bagian{
+  margin-bottom: 20px;
+}
+
+.baris-kolom-dokumen{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 20px;
+}
+
+.box-dokumen{
+  background-color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 0 10px 5px #e0e0e0;
+  transition: transform 1s;
+}
+
+.box-dokumen:hover{
+  transform: translateY(-10px);
+}
+
+.box-judul{
+  background-color: #7700FF;
+  color: #fff;
+  padding: 10px;
+}
+
+.box-isi .text{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  color: #000;
+  margin: 10px;
+}
+
+.tanggal{
+  padding: 10px;
+  color: #000;
+}
+
 @media  all and (max-width: 576px) {
 
   .judul h1 {
@@ -197,11 +288,21 @@ body{
     background-color: #fff;
 
   }
-  .baris{
+  /* .baris{
     display: grid;
     grid-gap: 20px;
      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
+  } */
+  .baris-kolom-dokumen{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
   }
 
 }
+
+
+
+
+

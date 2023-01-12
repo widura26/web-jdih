@@ -26,6 +26,13 @@ class PublicController extends Controller
         ]);
     }
 
+    public function viewFile($id, Dokumen $dokumen){
+
+        return view('public.review', [
+            "title" => $dokumen->judul
+        ]);
+    }
+
 
     public function dashboard(){
         
