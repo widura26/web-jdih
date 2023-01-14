@@ -114,7 +114,6 @@
                         
                               <div class="isi-box">
                                 <div class="text">
-                                  {{-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nam ullam incidunt temporibus, iusto dolore sit aut eos facere vitae.</p> --}}
                                   Tentang {{ $dokumen->judul }}
                                 </div>
                               </div>
@@ -190,6 +189,7 @@
           </div>
       </div>
     </div>
+    
 
     <div class="container-dokumen">
       @if($document->dokumen !== null)
@@ -197,7 +197,8 @@
           <div class="box-file">
             <div class="box-frame">
               <div class="lihat-selengkapnya">
-                <a href="{{ asset('storage/'. $document->dokumen) }}" target="_blank" rel="noopener" rel="noreferrer">Lihat Selengkapnya</a>
+                {{-- <a href="{{ asset('storage/'. $document->dokumen) }}" target="_blank" rel="noopener" rel="noreferrer">Lihat Selengkapnya</a> --}}
+                <a href="{{ route('public.viewFile', $document->dokumen)}}" target="_blank" rel="noopener" rel="noreferrer">Lihat Selengkapnya</a>
                 {{-- <button onclick="window.location.href ='{{ route('public.viewFile', $document->dokumen) }}'">Lihat Selengkapnya</button> --}}
               </div>
               <div id="pdfViewerDiv" class="container-canvas"></div>

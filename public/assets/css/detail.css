@@ -248,6 +248,10 @@ canvas{
 
 
 @media all and (max-width: 768px) {
+  .isi{
+    padding: 10px 5% 10px;
+    /* padding-bottom: 0; */
+  }
   .box-file{
     display: block;
   }
@@ -267,11 +271,6 @@ canvas{
     padding: 5%;
     padding-bottom: 0;
   }
-  
-  .isi{
-    padding: 10px 5% 10px;
-    /* padding-bottom: 0; */
-  }
 
   .wrapper-file{
     padding: 5%;
@@ -279,7 +278,7 @@ canvas{
   }
 
   .isi .semua{
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
 
   }
 
@@ -320,11 +319,6 @@ canvas{
   .wrapper{
     padding: 5%;
     padding-bottom: 0;
-  }
-  
-  .isi{
-    padding: 10px 5% 10px;
-    /* padding-bottom: 0; */
   }
   
   .wrapper-file{

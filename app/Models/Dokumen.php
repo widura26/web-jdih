@@ -17,6 +17,20 @@ class Dokumen extends Model
         'id'
     ];
 
+    public function scopeFilter($query, array $filters){
+        if(isset($filters['search']) ? $filters['search'] : false){
+           return $query->where('judul', 'like', '%' . $filters['search'] . '%' )
+                    // ->orWhere('kategori', 'like', '%' . request('search') . '%')
+                    ;
+        }
+
+        $query->when($filters['kategori'] ?? false, function($query, $kategori){
+            return $query->whereHas('kategori', function($query) use ($kategori){
+                $query->where($kategori);
+            });
+        });
+    }
+    
     public function kategori(){
         return $this->belongsTo(Kategori::class);
     }

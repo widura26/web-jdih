@@ -85,28 +85,44 @@ body{
   /* background-color: #e0e0e0; */
 }
 
+.kind-category{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category-list{
+  box-shadow: 0 0 20px 2px #e0e0e0;
+}
+.category-list li{
+  list-style-type: none;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.jenis{
+  padding: 10px;
+}
+
+.jumlah{
+  padding: 10px;
+}
+
 .dokumen-kategori{
   margin-top: 40px;
 }
 
 .new-dokumen-kategori{
   gap: 20px;
-  display: flex;
   flex-wrap: wrap;
+  display: flex;
 }
 
 .new-dokumen{
   flex: 2;
 }
 
-.kategori{
-  flex: 4;
-}
-
-.daftar-kategori{
-  gap: 10px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+.category{
+  flex: 2;
 }
 
 .jenis-kategori{
@@ -126,10 +142,6 @@ body{
 
 .daftar-dokumen{
   background-color: aqua;
-}
-
-.daftar-kategori li{
-  display: block;
 }
 
 .isi .isi-semuaDokumen-dokumenTerbaru{
@@ -202,13 +214,10 @@ body{
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.dokumenTerbaru-jumlahDokumen{
-  /* padding: 10px; */
-  flex: 2;
-}
 
 .dokumen-terbaru{
   box-shadow: 0 0 20px 2px #e0e0e0;
+  min-width: auto;
 }
 .judul-dokumen-terbaru h4{
   padding: 10px;
@@ -221,8 +230,12 @@ body{
   background-color: #fff;
 }
 
-.daftar-dokumen-terbaru .dokumen-1{
+.dokumen-terbaru .dokumen-1{
   padding: 10px;
+}
+
+.date p{
+  color: #ccc;
 }
 
 .bagian-dokumen{
@@ -278,22 +291,19 @@ body{
     font-size: 2rem;
     font-weight: bold;
   }
+
+  .new-dokumen{
+    display: block;
+  }
   .isi .isi-semuaDokumen-dokumenTerbaru{
     padding: 10px 5% 10px;
    
   }
-  
-
   .isi-semuaDokumen-dokumenTerbaru .semua{
     background-color: #fff;
 
   }
-  /* .baris{
-    display: grid;
-    grid-gap: 20px;
-     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
-  } */
   .baris-kolom-dokumen{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

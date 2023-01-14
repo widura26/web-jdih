@@ -17,9 +17,10 @@
       <div>
         <div class="bagian-search">
           <div class="search">
+            <h1>Dokumen apa yang anda cari?</h1>
             <form action="{{ route('public.semuaDokumen') }}" method="GET">
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Cari dokumen" name="search">
+                <input type="text" class="form-control" placeholder="Cari dokumen" name="search" value="{{ request('search') }}">
                 <button class="btn btn-primary" type="submit">Cari</button>
               </div>
             </form>
@@ -34,7 +35,11 @@
               @endforeach
             </div>
           </div>
+          <div class="pagination">
+            {{ $dokumen->links() }}
+          </div>
         </div>
+
       </div>
 
     </div>

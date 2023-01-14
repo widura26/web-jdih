@@ -13,6 +13,10 @@ body{
 
 }
 
+.search{
+  align-items: center;
+}
+
 .container-pertama{
   min-height: 100vh;
   display: flex;

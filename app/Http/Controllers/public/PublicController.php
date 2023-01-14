@@ -26,11 +26,9 @@ class PublicController extends Controller
         ]);
     }
 
-    public function viewFile($id, Dokumen $dokumen){
-
-        return view('public.review', [
-            "title" => $dokumen->judul
-        ]);
+    public function viewFile($id, $dokumen){
+        $document = Dokumen::find($id);
+        return view('public.review', compact('document'));
     }
 
 
@@ -47,16 +45,11 @@ class PublicController extends Controller
     public function semuaDokumen(){
         // dd(request('search'));q
         $category = $this->jenisDokumen();
-        $dokumen = Dokumen::latest();
-
-        if(request('search')){
-            $dokumen->where('judul', 'like', '%' . request('search') . '%' );
-        }
         
         return view('public.semuaDokumen', compact('category'), [
             "title" => "Semua Dokumen",
             "active" => "home",
-            "dokumen" => $dokumen->get()
+            "dokumen" => Dokumen::latest()->filter(request(['search', 'kategori']))->paginate(9)
         ] );
     }
 

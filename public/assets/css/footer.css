@@ -5,19 +5,19 @@
   height: auto;
 }
 
+.footer-section-1, .footer-section-2, .footer-section-3, .footer-section-4{
+  padding: 10px;
+} 
+
 .footer{
+  justify-content: center;
   height: auto;
   width: 100%;
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  margin: auto;
-  padding: 30px 0 30px 0;
-}
-
-.footer-section-1, .footer-section-2, .footer-section-3, .footer-section-4{
-  width: 20%;
-  margin: 0 auto;
+  gap: 20px;
+  padding: 20px;
 }
 
 .footer .footer-section-2 li{
@@ -28,6 +28,29 @@
   text-decoration: none;
   color: #364f6b;
   padding: 0;
+}
+.svg-tulisan {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+
+.logo svg{
+  width: 20px;
+  height: 20px;
+}
+.logo svg{
+  margin: 10px;
+}
+
+.tulisan{
+  padding: 10px;
+}
+
+
+@media screen and (max-width:768px) {
+  
 }
 
 @media screen and (max-width: 576px){

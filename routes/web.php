@@ -85,6 +85,7 @@ route::prefix('public')->group(function(){
     Route::get('/semua-dokumen', [PublicController::class, 'semuaDokumen'])->name('public.semuaDokumen');
     Route::get('/download/{id}', [PublicController::class, 'viewFile'])->name('public.download');
 });
+Route::get('/storage/{dokumen}', [PublicController::class, 'viewFile'])->name('public.viewFile');
 
 Route::get('/', [PublicController::class, 'dashboard'])->name('public.dashboard');
 Route::get('public', [PublicController::class, 'public']);

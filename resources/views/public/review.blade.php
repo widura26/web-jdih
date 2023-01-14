@@ -4,16 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{ $title }}</title>
+  <title>{{ $document->judul }}</title>
 </head>
 <body>
   <div id="pdfViewerDiv" class="container-canvas"></div>
 </body>
 <script>
-    
   initPDFViewer = () =>{
     $("#pdfViewerDiv").html("")
-    pdfjsLib.getDocument("{{ asset('storage/'. $dokumen->dokumen ) }}").promise.then(pdfDoc=>{
+    pdfjsLib.getDocument("{{ asset('storage/'. $document->dokumen ) }}").promise.then(pdfDoc=>{
       // console.log(pdfDoc)
       let pages = pdfDoc._pdfInfo.numPages
       for(let i=1; i<=pages; i++){

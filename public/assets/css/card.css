@@ -1,34 +1,32 @@
 .box-link{
-  background-color: #fff;
-  box-shadow: 0 0 10px 5px #e0e0e0;
+  background-color: #ffffff;
   text-decoration: none;
-  /* margin: 10px */
+  box-shadow: 0 0 10px 5px #e0e0e0;
+  transition: transform 1s;
 }
 
 .box-link:hover{
-  background-color: #e0e0e0;
-  transition: 1s ease-out;
+  transform: translateY(-10px);
 }
 
-
-.judul-box{
+.box-judul{
   background-color: #7700FF;
-  padding: 10px;
   color: #fff;
+  padding: 10px;
 }
 
-.isi-box{
-  max-width: 100%;
-}
-
-.container-box{
-  margin: 10px 10px 10px 10px;
-
-}
-
-.isi-box p{
+.box-isi .text{
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: black;
+  text-decoration: none;
+  color: #000;
+  margin: 10px;
 }
+
+.tanggal{
+  padding: 10px;
+  color: #000;
+}
+
+
